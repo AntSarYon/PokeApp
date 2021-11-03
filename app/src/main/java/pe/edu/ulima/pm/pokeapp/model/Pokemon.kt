@@ -7,6 +7,9 @@ import androidx.room.PrimaryKey
 @Entity()
 data class Pokemon(
 
+    @PrimaryKey
+    val id : Long,
+
     // name --> "bulbasaur"
     @ColumnInfo(name="name")
     val name : String,
