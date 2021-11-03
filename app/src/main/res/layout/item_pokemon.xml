@@ -1,6 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iviPokemon"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tvi_nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="NombrePokemon"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toEndOf="@+id/iviPokemon"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvi_HP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="HP: "
+        app:layout_constraintStart_toStartOf="@+id/tvi_nombre"
+        app:layout_constraintTop_toBottomOf="@+id/tvi_nombre" />
+
+    <TextView
+        android:id="@+id/tvi_Attack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Attack: "
+        app:layout_constraintStart_toStartOf="@+id/tvi_HP"
+        app:layout_constraintTop_toBottomOf="@+id/tvi_HP" />
+
+    <TextView
+        android:id="@+id/tvi_Defense"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Defense: "
+        app:layout_constraintStart_toStartOf="@+id/tvi_Attack"
+        app:layout_constraintTop_toBottomOf="@+id/tvi_Attack" />
+
+    <TextView
+        android:id="@+id/tvi_SpecialAttack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Special Attack: "
+        app:layout_constraintStart_toStartOf="@+id/tvi_Defense"
+        app:layout_constraintTop_toBottomOf="@+id/tvi_Defense" />
+
+    <TextView
+        android:id="@+id/tvi_SpecialDefense"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Special Defense: "
+        app:layout_constraintStart_toStartOf="@+id/tvi_SpecialAttack"
+        app:layout_constraintTop_toBottomOf="@+id/tvi_SpecialAttack" />
+
+    <TextView
+        android:id="@+id/tvi_HP_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/tvi_HP"
+        app:layout_constraintTop_toTopOf="@+id/tvi_HP" />
+
+    <TextView
+        android:id="@+id/tvi_Attack_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/tvi_Attack"
+        app:layout_constraintTop_toTopOf="@+id/tvi_Attack" />
+
+    <TextView
+        android:id="@+id/tvi_Defense_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/tvi_Defense"
+        app:layout_constraintTop_toTopOf="@+id/tvi_Defense" />
+
+    <TextView
+        android:id="@+id/tvi_SpecialAttack_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/tvi_SpecialAttack"
+        app:layout_constraintTop_toTopOf="@+id/tvi_SpecialAttack" />
+
+    <TextView
+        android:id="@+id/tvi_SpecialDefense_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/tvi_SpecialDefense"
+        app:layout_constraintTop_toBottomOf="@+id/tvi_SpecialAttack" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
