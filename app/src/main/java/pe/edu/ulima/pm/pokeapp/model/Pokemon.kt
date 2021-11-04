@@ -37,6 +37,6 @@ data class Pokemon(
     // sprites > other > official_artwork > front_default
     // Devuelve este URL a la imagen del pokemon --> https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png
     @ColumnInfo(name="url")
-    val URL: String
+    val url: String
 
 )
