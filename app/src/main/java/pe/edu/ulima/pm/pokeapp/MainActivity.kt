@@ -16,8 +16,6 @@ class MainActivity : AppCompatActivity(), PokemonFragment.OnPokemonSelectedListe
     private var fragmentPKD : Fragment = Fragment()
     private var fragmentPKF : Fragment = Fragment()
 
-    //private  lateinit var  dlaMain : DrawerLayout
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_presentation)
@@ -32,6 +30,7 @@ class MainActivity : AppCompatActivity(), PokemonFragment.OnPokemonSelectedListe
 
     }
 
+    /*
     //-- FUNCION | Cambio a Lista de Pokemon ---------------------------------
 
     private fun changePokemonFragment(){
@@ -57,7 +56,7 @@ class MainActivity : AppCompatActivity(), PokemonFragment.OnPokemonSelectedListe
     }
 
     //-----------------------------------------------------------
-
+     */
     override fun onSelect(pokemon: Pokemon) {
         //______
     }
