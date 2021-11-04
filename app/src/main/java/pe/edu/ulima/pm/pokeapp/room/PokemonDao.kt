@@ -12,7 +12,7 @@ interface PokemonDao {
     fun findAll(): List<Pokemon>
 
     @Query("select * from Pokemon WHERE id=:id")
-    fun findByName(id : Long) : Pokemon
+    fun findById(id : Long) : Pokemon
 
     @Insert
     fun insert(pokemon : Pokemon)

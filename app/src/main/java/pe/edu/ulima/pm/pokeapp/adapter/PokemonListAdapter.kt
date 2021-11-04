@@ -51,37 +51,37 @@ class PokemonListAdapter(
 
     //-----------------------------------------------------------------
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_pokemon, parent, false)
-        val viewHolder = ViewHolder(view, listener, pokemonList)
-        return viewHolder
-    }
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.item_pokemon, parent, false)
+            val viewHolder = ViewHolder(view, listener, pokemonList)
+            return viewHolder
+        }
 
     //-----------------------------------------------------------------
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int)
-    {
-        //accedo a los elementos de ese item para modificar sus propieades ------
-        holder.tviPokemonName.text = pokemonList[position].name
-        holder.tviPokemonHP.text = pokemonList[position].hp.toString()
-        holder.tviPokemonAttack.text = pokemonList[position].attack.toString()
-        holder.tviPokemonDefense.text = pokemonList[position].defense.toString()
-        holder.tviPokemonSpecialAttack.text = pokemonList[position].special_attack.toString()
-        holder.tviPokemonSpecialDefense.text = pokemonList[position].special_defense.toString()
+        override fun onBindViewHolder(holder: ViewHolder, position: Int)
+        {
+            //accedo a los elementos de ese item para modificar sus propieades ------
+            holder.tviPokemonName.text = pokemonList[position].name
+            holder.tviPokemonHP.text = pokemonList[position].hp.toString()
+            holder.tviPokemonAttack.text = pokemonList[position].attack.toString()
+            holder.tviPokemonDefense.text = pokemonList[position].defense.toString()
+            holder.tviPokemonSpecialAttack.text = pokemonList[position].special_attack.toString()
+            holder.tviPokemonSpecialDefense.text = pokemonList[position].special_defense.toString()
 
 
-        //Gestionamos Glide para obtener una imagen para el item por medio de la red ---
-        Glide.with(fragment)
-            .load(pokemonList[position].url)
-            .sizeMultiplier(0.8f)
-            .fitCenter()
-            .into(holder.iviPokemonImage)
-    }
+            //Gestionamos Glide para obtener una imagen para el item por medio de la red ---
+            Glide.with(fragment)
+                .load(pokemonList[position].url)
+                .sizeMultiplier(0.8f)
+                .fitCenter()
+                .into(holder.iviPokemonImage)
+        }
 
     //-----------------------------------------------------------------
 
-    override fun getItemCount(): Int {
-        return pokemonList.size
-    }
+        override fun getItemCount(): Int {
+            return pokemonList.size
+        }
 
     }

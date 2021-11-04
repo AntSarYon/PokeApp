@@ -4,6 +4,8 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+// "https://pokeapi.co/api/v2/pokemon/"
+
 @Entity()
 data class Pokemon(
 

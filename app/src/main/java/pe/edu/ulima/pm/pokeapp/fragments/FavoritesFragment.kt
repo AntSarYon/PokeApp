@@ -1,4 +1,7 @@
 package pe.edu.ulima.pm.pokeapp.fragments
 
-class FavoritesFragment {
+import androidx.fragment.app.Fragment
+
+class FavoritesFragment() : Fragment()  {
+    
 }

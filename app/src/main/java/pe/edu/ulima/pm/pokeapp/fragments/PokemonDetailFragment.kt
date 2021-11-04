@@ -1,4 +1,7 @@
 package pe.edu.ulima.pm.pokeapp.fragments
 
-class PokemonDetailFragment {
+import androidx.fragment.app.Fragment
+
+class PokemonDetailFragment() : Fragment() {
+    
 }
