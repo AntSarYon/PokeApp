@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity(), PokemonFragment.OnPokemonSelectedListe
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_presentation)
+        setContentView(R.layout.activity_main)
 
         fragmentPK = PokemonFragment()          // <-- Fragment Pokemon
         fragmentPKD = FavoritesFragment()       // <-- Fragment Detalles del Pokemon
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity(), PokemonFragment.OnPokemonSelectedListe
 
     }
 
-    /*
+
     //-- FUNCION | Cambio a Lista de Pokemon ---------------------------------
 
     private fun changePokemonFragment(){
@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity(), PokemonFragment.OnPokemonSelectedListe
     }
 
     //-----------------------------------------------------------
-     */
+
     override fun onSelect(pokemon: Pokemon) {
         Log.i("Mensaje","onSelectDefinido")
     }
