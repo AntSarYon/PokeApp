@@ -15,7 +15,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/tvi_nombre"
+        android:id="@+id/tvi_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -31,8 +31,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="HP: "
-        app:layout_constraintStart_toStartOf="@+id/tvi_nombre"
-        app:layout_constraintTop_toBottomOf="@+id/tvi_nombre" />
+        app:layout_constraintStart_toStartOf="@+id/tvi_name"
+        app:layout_constraintTop_toBottomOf="@+id/tvi_name" />
 
     <TextView
         android:id="@+id/tvi_Attack"
