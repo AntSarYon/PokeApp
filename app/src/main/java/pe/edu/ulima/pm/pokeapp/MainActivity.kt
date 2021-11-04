@@ -25,12 +25,22 @@ class MainActivity : AppCompatActivity(), PokemonFragment.OnPokemonSelectedListe
         fragmentPKD = FavoritesFragment()       // <-- Fragment Detalles del Pokemon
         fragmentPKF = PokemonDetailFragment()   // <-- Fragment Pokemon Favoritos
 
-        val ft = supportFragmentManager.beginTransaction()
-        ft.add(R.id.flaContent,fragmentPK)
-        ft.commit()
+        var fragmentMostrado = intent.getBundleExtra("data")?.getString("fragment")
+
+        //SI SE OPRIMIÓ EL BOTON "CONTINUAR" MUESTRA EL FRAGMENT DE POKEMON
+        if(fragmentMostrado.equals("pokemon")){
+            val ft = supportFragmentManager.beginTransaction()
+            ft.add(R.id.flaContent,fragmentPK)
+            ft.commit()
+        }
+        //SI SE OPRIMIÓ EL BOTON "FAVORITOS" MUESTRA EL FRAGMENT DE POKEMON
+        else if(fragmentMostrado.equals("favoritos")){
+            val ft = supportFragmentManager.beginTransaction()
+            ft.add(R.id.flaContent,fragmentPKF)
+            ft.commit()
+        }
 
     }
-
 
     //-- FUNCION | Cambio a Lista de Pokemon ---------------------------------
 

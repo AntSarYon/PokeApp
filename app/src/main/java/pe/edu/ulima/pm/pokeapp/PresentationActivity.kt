@@ -12,22 +12,31 @@ class PresentationActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_presentation)
 
+
         val butContinuar : Button = findViewById(R.id.but_continuar)
         butContinuar.setOnClickListener {
             val intent = Intent()
+            val bundle = Bundle()
+
+            //El Bundle indica que se debe mostar el Fragment de la lista de Pokemon
+            bundle.putString("fragment", "pokemon")
+            intent.putExtra("data", bundle)
+
             intent.setClass(this, MainActivity::class.java)
             startActivity(intent)
-            Log.i("mensaje", "Se hizo click")
         }
 
         val butFavoritos : Button = findViewById<Button>(R.id.but_favoritos)
         butFavoritos.setOnClickListener {
-            //val intent = Intent()
-            //intent.setClass(this, MainActivity::class.java)
-            //startActivity(intent)
-            Log.i("mensaje", "Se hizo click")
+            val intent = Intent()
+            val bundle = Bundle()
+
+            //El Bundle indica que se debe mostar el Fragment de Favoritos
+            bundle.putString("fragment", "favoritos")
+            intent.putExtra("data", bundle)
+
+            intent.setClass(this, MainActivity::class.java)
+            startActivity(intent)
         }
-
     }
-
 }
