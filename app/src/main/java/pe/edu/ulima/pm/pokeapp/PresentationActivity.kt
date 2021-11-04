@@ -12,11 +12,11 @@ class PresentationActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_presentation)
 
-        val butContinuar : Button = findViewById<Button>(R.id.but_continuar)
+        val butContinuar : Button = findViewById(R.id.but_continuar)
         butContinuar.setOnClickListener {
-            //val intent = Intent()
-            //intent.setClass(this, MainActivity::class.java)
-            //startActivity(intent)
+            val intent = Intent()
+            intent.setClass(this, MainActivity::class.java)
+            startActivity(intent)
             Log.i("mensaje", "Se hizo click")
         }
 

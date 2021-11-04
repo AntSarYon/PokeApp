@@ -2,6 +2,7 @@ package pe.edu.ulima.pm.pokeapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import pe.edu.ulima.pm.pokeapp.fragments.FavoritesFragment
@@ -58,6 +59,6 @@ class MainActivity : AppCompatActivity(), PokemonFragment.OnPokemonSelectedListe
     //-----------------------------------------------------------
      */
     override fun onSelect(pokemon: Pokemon) {
-        //______
+        Log.i("Mensaje","onSelectDefinido")
     }
 }

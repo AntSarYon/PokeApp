@@ -25,7 +25,7 @@ class PokemonFragment() : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         listener = context as OnPokemonSelectedListener
-    }
+   }
 
     //-----------------------------------------------------------------------------
 
@@ -39,10 +39,10 @@ class PokemonFragment() : Fragment() {
 
     //-----------------------------------------------------------------------------
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    //override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    //    super.onViewCreated(view, savedInstanceState)
 
         // AQUI FALTA COMPLETAR AUN...
 
-    }
+    //}
 }
