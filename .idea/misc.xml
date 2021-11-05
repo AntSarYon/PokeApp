@@ -3,11 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/2021-2/progra movil/PokeApp/app/src/main/res/layout/fragment_pokemon.xml" value="0.33" />
         <entry key="..\:/Users/anton/Documents/UNIVERSIDAD-ULIMA/CICLO-VIII/PrograMovil/Proyectos/PokeApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/anton/Documents/UNIVERSIDAD-ULIMA/CICLO-VIII/PrograMovil/Proyectos/PokeApp/app/src/main/res/layout/activity_presentation.xml" value="0.25" />
         <entry key="..\:/Users/anton/Documents/UNIVERSIDAD-ULIMA/CICLO-VIII/PrograMovil/Proyectos/PokeApp/app/src/main/res/layout/fragment_favorites.xml" value="0.33" />
-        <entry key="..\:/Users/anton/Documents/UNIVERSIDAD-ULIMA/CICLO-VIII/PrograMovil/Proyectos/PokeApp/app/src/main/res/layout/fragment_pokemon.xml" value="0.33" />
+        <entry key="..\:/Users/anton/Documents/UNIVERSIDAD-ULIMA/CICLO-VIII/PrograMovil/Proyectos/PokeApp/app/src/main/res/layout/fragment_pokemon.xml" value="0.18" />
         <entry key="..\:/Users/anton/Documents/UNIVERSIDAD-ULIMA/CICLO-VIII/PrograMovil/Proyectos/PokeApp/app/src/main/res/layout/fragment_pokemondetail.xml" value="0.33" />
         <entry key="..\:/Users/anton/Documents/UNIVERSIDAD-ULIMA/CICLO-VIII/PrograMovil/Proyectos/PokeApp/app/src/main/res/layout/item_favorite.xml" value="0.33" />
         <entry key="..\:/Users/anton/Documents/UNIVERSIDAD-ULIMA/CICLO-VIII/PrograMovil/Proyectos/PokeApp/app/src/main/res/layout/item_pokemon.xml" value="0.33" />
