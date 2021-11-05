@@ -7,8 +7,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.core.os.HandlerCompat
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import pe.edu.ulima.pm.pokeapp.R
 import pe.edu.ulima.pm.pokeapp.model.PokemonManager
 
@@ -53,7 +56,28 @@ class PokemonDetailFragment() : Fragment() {
         parentFragmentManager.setFragmentResultListener("pok",this,{
             requestKey, bundle ->
             ide = bundle.getInt("id")
-
+            val handler = HandlerCompat.createAsync(Looper.myLooper()!!)
+            Thread() {
+                val pokemon = PokemonManager(requireActivity().applicationContext).getPokemon(ide)
+                handler.post {
+                    val nombre = view.findViewById<TextView>(R.id.tvi_nombre)
+                    nombre.text = pokemon.name
+                    val hp = view.findViewById<TextView>(R.id.tvi_DHP_value)
+                    hp.text = pokemon.stats[0].baseStat.toString()
+                    val att = view.findViewById<TextView>(R.id.tvi_DAttack_value)
+                    att.text = pokemon.stats[1].baseStat.toString()
+                    val def = view.findViewById<TextView>(R.id.tvi_DDefense_value)
+                    def.text = pokemon.stats[2].baseStat.toString()
+                    val ate = view.findViewById<TextView>(R.id.tvi_DSpecialAttack_value)
+                    ate.text = pokemon.stats[3].baseStat.toString()
+                    val dee = view.findViewById<TextView>(R.id.tvi_DSpecialDefense_value)
+                    dee.text = pokemon.stats[4].baseStat.toString()
+                    var img = view.findViewById<ImageView>(R.id.imageView)
+                    Glide.with(this).load(pokemon.sprites.frontDefault)
+                        .sizeMultiplier(1f).fitCenter()
+                        .into(img)
+                }
+            }.start()
         })
 
         return view
