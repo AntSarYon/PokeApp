@@ -59,7 +59,7 @@ class PokemonFragment() : Fragment() {
         val rviPokemon = view.findViewById<RecyclerView>(R.id.rviPokemon)
         val handler = HandlerCompat.createAsync(Looper.myLooper()!!)
         Thread() {
-             pkLista = getPokemonAI()//PokemonManager(requireActivity().applicationContext).getAllPokemon()
+             pkLista = PokemonManager(requireActivity().applicationContext).getAllPokemon()//getPokemonAI()
              handler.post {
                  rviPokemon.adapter = PokemonListAdapter(pkLista,this){
                      pokemon ->
@@ -76,6 +76,7 @@ class PokemonFragment() : Fragment() {
             }
         }.start()
     }
+    //funcion para almacenamiento interno de pokemon
     fun getPokemonAI(): List<me.sargunvohra.lib.pokekotlin.model.Pokemon> {
         var cadena : String =""
         try {
@@ -84,10 +85,10 @@ class PokemonFragment() : Fragment() {
                 cadena = String(byteArray!!)
             }
         }catch (info:FileNotFoundException){
-
+            Log.i("kk", "error")
         }
         //val listType = TypeToken<List<me.sargunvohra.lib.pokekotlin.model.Pokemon>>(){}.type
-        val pkList = Gson().fromJson<List<me.sargunvohra.lib.pokekotlin.model.Pokemon>>(
+        val pkList : List<me.sargunvohra.lib.pokekotlin.model.Pokemon> = Gson().fromJson<List<me.sargunvohra.lib.pokekotlin.model.Pokemon>>(
             cadena,me.sargunvohra.lib.pokekotlin.model.Pokemon::class.java)
         return pkList
     }
