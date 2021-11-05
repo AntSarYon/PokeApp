@@ -3,6 +3,7 @@ package pe.edu.ulima.pm.pokeapp.model
 import android.content.Context
 import android.util.Log
 import androidx.room.Room
+import com.google.gson.Gson
 import me.sargunvohra.lib.pokekotlin.client.PokeApiClient
 import pe.edu.ulima.pm.pokeapp.room.PKAppDatabase
 
@@ -18,6 +19,7 @@ class PokemonManager(context: Context) {
     }
     fun getAllPokemon():List<me.sargunvohra.lib.pokekotlin.model.Pokemon>{
         val pokeApi = PokeApiClient()
+
         val lista : MutableList<me.sargunvohra.lib.pokekotlin.model.Pokemon> = mutableListOf()
         for (i in 1..20){
             val test = pokeApi.getPokemon(i)
@@ -25,4 +27,5 @@ class PokemonManager(context: Context) {
         }
         return lista;
     }
+
 }

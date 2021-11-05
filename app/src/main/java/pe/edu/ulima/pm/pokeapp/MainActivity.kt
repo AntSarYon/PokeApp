@@ -56,6 +56,7 @@ class MainActivity : AppCompatActivity(), PokemonFragment.OnPokemonSelectedListe
         val ft = supportFragmentManager.beginTransaction()
         ft.replace(R.id.flaContent, fragmentPKF)
         ft.commit()
+
     }
 
     //-- FUNCION | Cambio a Detalles de Pokemon ---------------------------------
