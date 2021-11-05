@@ -21,7 +21,6 @@ import java.io.FileNotFoundException
 import java.lang.reflect.Type
 import kotlin.concurrent.thread
 
-
 class PokemonFragment() : Fragment() {
 
     private var listener : OnPokemonSelectedListener? = null
