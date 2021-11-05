@@ -44,7 +44,8 @@ class MainActivity : AppCompatActivity(), PokemonFragment.OnPokemonSelectedListe
 
     private fun changePokemonFragment(){
         val ft = supportFragmentManager.beginTransaction()
-        ft.replace(R.id.flaContent, fragmentPK)
+        ft.remove(fragmentPKD)
+        ft.show(fragmentPK)
         ft.commit()
     }
 
@@ -62,7 +63,8 @@ class MainActivity : AppCompatActivity(), PokemonFragment.OnPokemonSelectedListe
     private fun changePokemonDetailFragment(){
         val ft = supportFragmentManager.beginTransaction()
         fragmentPKD =  PokemonDetailFragment()
-        ft.replace(R.id.flaContent, fragmentPKD)
+        ft.add(R.id.flaContent, fragmentPKD)
+        ft.hide(fragmentPK)
         ft.commit()
     }
 
