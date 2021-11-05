@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Button
 import androidx.core.os.HandlerCompat
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
@@ -87,7 +88,10 @@ class PokemonDetailFragment() : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        val btnAtras = view.findViewById<Button>(R.id.btnAtras)
+        btnAtras.setOnClickListener {
+            listener?.onClick("cancelar")
+        }
     }
 
 }

@@ -74,6 +74,6 @@ class MainActivity : AppCompatActivity(), PokemonFragment.OnPokemonSelectedListe
     }
 
     override fun onClick(vista: String) {
-        TODO("Not yet implemented")
+        changePokemonFragment()
     }
 }
