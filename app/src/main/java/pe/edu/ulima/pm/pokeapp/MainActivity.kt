@@ -3,14 +3,12 @@ package pe.edu.ulima.pm.pokeapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import pe.edu.ulima.pm.pokeapp.fragments.FavoritesFragment
 import pe.edu.ulima.pm.pokeapp.fragments.PokemonDetailFragment
 import pe.edu.ulima.pm.pokeapp.fragments.PokemonFragment
-import pe.edu.ulima.pm.pokeapp.model.Pokemon
 
-class MainActivity : AppCompatActivity(), PokemonFragment.OnPokemonSelectedListener {
+class MainActivity : AppCompatActivity(), PokemonFragment.OnPokemonSelectedListener, PokemonDetailFragment.OnClicked {
 
     //Manejamos los Fragments
     private var fragmentPK : Fragment = Fragment()
@@ -63,13 +61,19 @@ class MainActivity : AppCompatActivity(), PokemonFragment.OnPokemonSelectedListe
 
     private fun changePokemonDetailFragment(){
         val ft = supportFragmentManager.beginTransaction()
+        fragmentPKD =  PokemonDetailFragment()
         ft.replace(R.id.flaContent, fragmentPKD)
         ft.commit()
     }
 
     //-----------------------------------------------------------
 
-    override fun onSelect(pokemon: me.sargunvohra.lib.pokekotlin.model.Pokemon) {
+    override fun onSelect() {
+        changePokemonDetailFragment()
 
+    }
+
+    override fun onClick(vista: String) {
+        TODO("Not yet implemented")
     }
 }

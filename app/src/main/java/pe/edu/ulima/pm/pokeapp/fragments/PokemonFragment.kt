@@ -28,7 +28,7 @@ class PokemonFragment() : Fragment() {
     //---------------- CREACION DE INTERFACE-------------------------------
 
     interface OnPokemonSelectedListener {
-        fun onSelect(pokemon : me.sargunvohra.lib.pokekotlin.model.Pokemon)
+        fun onSelect()
     }
 
     //-----------------------------------------------------------------------------
@@ -63,7 +63,11 @@ class PokemonFragment() : Fragment() {
                  rviPokemon.adapter = PokemonListAdapter(pkLista,this){
                      pokemon ->
                      Log.i("ProductsFragment", pokemon.name)
-                     listener?.onSelect(pokemon)
+                     val result = pokemon.id
+                     var bundle : Bundle = Bundle()
+                     bundle.putInt("id",result)
+                     parentFragmentManager.setFragmentResult("pok",bundle)
+                     listener?.onSelect()
                  }
 
              }
