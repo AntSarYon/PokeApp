@@ -5,6 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/wallpaper" />
+
     <Button
         android:id="@+id/btnAtras"
         style="@style/Widget.AppCompat.Button.Small"
@@ -23,6 +34,7 @@
         android:layout_marginTop="8dp"
         android:text="NombrePokemon"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -45,6 +57,7 @@
         android:layout_marginTop="16dp"
         android:text="HP: "
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -54,6 +67,7 @@
         android:layout_height="wrap_content"
         android:text="Attack: "
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@+id/tvi_DHP"
         app:layout_constraintTop_toBottomOf="@+id/tvi_DHP" />
 
@@ -63,6 +77,7 @@
         android:layout_height="wrap_content"
         android:text="Defense: "
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@+id/tvi_DAttack"
         app:layout_constraintTop_toBottomOf="@+id/tvi_DAttack" />
 
@@ -72,6 +87,7 @@
         android:layout_height="wrap_content"
         android:text="Special Attack: "
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@+id/tvi_DDefense"
         app:layout_constraintTop_toBottomOf="@+id/tvi_DDefense" />
 
@@ -81,6 +97,7 @@
         android:layout_height="wrap_content"
         android:text="Special Defense: "
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@+id/tvi_DSpecialAttack"
         app:layout_constraintTop_toBottomOf="@+id/tvi_DSpecialAttack" />
 
@@ -101,6 +118,7 @@
         android:layout_marginEnd="16dp"
         android:text="0"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/tvi_DHP"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tvi_DHP" />
@@ -112,6 +130,7 @@
         android:layout_marginEnd="16dp"
         android:text="0"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/tvi_DAttack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tvi_DAttack" />
@@ -123,6 +142,7 @@
         android:layout_marginEnd="16dp"
         android:text="0"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/tvi_DDefense"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tvi_DDefense" />
@@ -134,6 +154,7 @@
         android:layout_marginEnd="16dp"
         android:text="0"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/tvi_DSpecialAttack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tvi_DSpecialAttack" />
@@ -145,7 +166,9 @@
         android:layout_marginEnd="16dp"
         android:text="0"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/tvi_DSpecialDefense"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tvi_DSpecialDefense" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
