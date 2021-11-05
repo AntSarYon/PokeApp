@@ -74,6 +74,12 @@ class MainActivity : AppCompatActivity(), PokemonFragment.OnPokemonSelectedListe
         ft.commit()
     }
 
+    private fun test(){
+        val ft = supportFragmentManager.beginTransaction()
+        ft.replace(R.id.flaContent,fragmentPK)
+        ft.commit()
+    }
+
     //-----------------------------------------------------------
 
     override fun onSelect() {
@@ -101,6 +107,6 @@ class MainActivity : AppCompatActivity(), PokemonFragment.OnPokemonSelectedListe
     }
 
     override fun onClick() {
-        changePokemonFragment()
+        test()
     }
 }
