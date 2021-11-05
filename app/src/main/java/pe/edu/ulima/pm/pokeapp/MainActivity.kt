@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity(), PokemonFragment.OnPokemonSelectedListe
 
     //-----------------------------------------------------------
 
-    override fun onSelect(pokemon: Pokemon) {
-        Log.i("Mensaje","onSelectDefinido")
+    override fun onSelect(pokemon: me.sargunvohra.lib.pokekotlin.model.Pokemon) {
+
     }
 }

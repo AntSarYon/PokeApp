@@ -2,13 +2,20 @@ package pe.edu.ulima.pm.pokeapp.fragments
 
 import android.content.Context
 import android.os.Bundle
+import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.os.HandlerCompat
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import pe.edu.ulima.pm.pokeapp.R
+import pe.edu.ulima.pm.pokeapp.adapter.PokemonListAdapter
 import pe.edu.ulima.pm.pokeapp.model.Pokemon
 import pe.edu.ulima.pm.pokeapp.model.PokemonManager
+import kotlin.concurrent.thread
 
 class PokemonFragment() : Fragment() {
 
@@ -17,7 +24,7 @@ class PokemonFragment() : Fragment() {
     //---------------- CREACION DE INTERFACE-------------------------------
 
     interface OnPokemonSelectedListener {
-        fun onSelect(pokemon : Pokemon)
+        fun onSelect(pokemon : me.sargunvohra.lib.pokekotlin.model.Pokemon)
     }
 
     //-----------------------------------------------------------------------------
@@ -41,7 +48,24 @@ class PokemonFragment() : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // AQUI FALTA COMPLETAR AUN...
+
+
+        var pkLista: List<me.sargunvohra.lib.pokekotlin.model.Pokemon> = listOf()
+        val rviPokemon = view.findViewById<RecyclerView>(R.id.rviPokemon)
+        val handler = HandlerCompat.createAsync(Looper.myLooper()!!)
+        Thread() {
+             pkLista = PokemonManager(requireActivity().applicationContext).getAllPokemon()
+             handler.post {
+                 rviPokemon.adapter = PokemonListAdapter(pkLista,this){
+                     pokemon ->
+                     Log.i("ProductsFragment", pokemon.name)
+                     listener?.onSelect(pokemon)
+                 }
+             }
+        }.start()
+
+
+
 
     }
 }
