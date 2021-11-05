@@ -13,7 +13,7 @@ import pe.edu.ulima.pm.pokeapp.fragments.PokemonFragment
 
 data class Favoritos(val nombres: MutableList<String>)
 
-class MainActivity : AppCompatActivity(), PokemonFragment.OnPokemonSelectedListener, PokemonDetailFragment.OnClicked {
+class MainActivity : AppCompatActivity(), PokemonFragment.OnPokemonSelectedListener, PokemonDetailFragment.OnClicked, FavoritesFragment.onCliked {
 
     //Manejamos los Fragments
     private var fragmentPK : Fragment = Fragment()
@@ -25,21 +25,21 @@ class MainActivity : AppCompatActivity(), PokemonFragment.OnPokemonSelectedListe
         setContentView(R.layout.activity_main)
 
         fragmentPK = PokemonFragment()          // <-- Fragment Pokemon
-        fragmentPKD = FavoritesFragment()       // <-- Fragment Detalles del Pokemon
-        fragmentPKF = PokemonDetailFragment()   // <-- Fragment Pokemon Favoritos
+        fragmentPKD = PokemonDetailFragment()       // <-- Fragment Detalles del Pokemon
+        fragmentPKF = FavoritesFragment()   // <-- Fragment Pokemon Favoritos
 
         var fragmentMostrado = intent.getBundleExtra("data")?.getString("fragment")
 
         //SI SE OPRIMIÓ EL BOTON "CONTINUAR" MUESTRA EL FRAGMENT DE POKEMON
         if(fragmentMostrado.equals("pokemon")){
             val ft = supportFragmentManager.beginTransaction()
-            ft.add(R.id.flaContent,fragmentPK)
+            ft.replace(R.id.flaContent,fragmentPK)
             ft.commit()
         }
         //SI SE OPRIMIÓ EL BOTON "FAVORITOS" MUESTRA EL FRAGMENT DE POKEMON
         else if(fragmentMostrado.equals("favoritos")){
             val ft = supportFragmentManager.beginTransaction()
-            ft.add(R.id.flaContent,fragmentPKF)
+            ft.replace(R.id.flaContent,fragmentPKF)
             ft.commit()
         }
 
@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity(), PokemonFragment.OnPokemonSelectedListe
     private fun changePokemonFragment(){
         val ft = supportFragmentManager.beginTransaction()
         ft.remove(fragmentPKD)
+        ft.remove(fragmentPKF)
         ft.show(fragmentPK)
         ft.commit()
     }
@@ -97,5 +98,9 @@ class MainActivity : AppCompatActivity(), PokemonFragment.OnPokemonSelectedListe
             changePokemonFragment()
 
         }
+    }
+
+    override fun onClick() {
+        changePokemonFragment()
     }
 }
