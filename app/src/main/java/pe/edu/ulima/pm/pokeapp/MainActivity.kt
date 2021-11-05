@@ -1,12 +1,17 @@
 package pe.edu.ulima.pm.pokeapp
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentResultListener
 import pe.edu.ulima.pm.pokeapp.fragments.FavoritesFragment
 import pe.edu.ulima.pm.pokeapp.fragments.PokemonDetailFragment
 import pe.edu.ulima.pm.pokeapp.fragments.PokemonFragment
+
+data class Favoritos(val nombres: MutableList<String>)
 
 class MainActivity : AppCompatActivity(), PokemonFragment.OnPokemonSelectedListener, PokemonDetailFragment.OnClicked {
 
@@ -78,8 +83,19 @@ class MainActivity : AppCompatActivity(), PokemonFragment.OnPokemonSelectedListe
     override fun onClick(vista: String) {
         if(vista == "cancelar"){
         changePokemonFragment()
-        }else if(vista == "favorito"){
+        }else{
+            val editor = getSharedPreferences("FAVORITOS",Context.MODE_PRIVATE)
+            val favoritos = editor.getStringSet("LIST_POKEMON", setOf<String>())?.toMutableList()
+            if(favoritos!=null){
+                favoritos.add(vista)
+                Log.i("valor",favoritos[0].toString())
+                val editor2 = getSharedPreferences("FAVORITOS",Context.MODE_PRIVATE).edit()
+                editor2.putStringSet("LIST_POKEMON",favoritos.toSet())
+                editor2.commit()
+            }
+
             changePokemonFragment()
+
         }
     }
 }

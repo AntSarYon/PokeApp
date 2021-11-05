@@ -94,11 +94,8 @@ class PokemonDetailFragment() : Fragment() {
         }
         val btnFavoritos = view.findViewById<Button>(R.id.but_añadir)
         btnFavoritos.setOnClickListener {
-
-            var bundle:Bundle = Bundle()
-            bundle.putInt("id",ide)
-            parentFragmentManager.setFragmentResult("fav",bundle)
-            listener?.onClick("favorito")
+            val nombre = view.findViewById<TextView>(R.id.tvi_nombre)
+            listener?.onClick(nombre.text.toString())
         }
     }
 

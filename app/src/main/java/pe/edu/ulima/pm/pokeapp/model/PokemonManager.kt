@@ -31,7 +31,6 @@ class PokemonManager(context: Context) {
     }
 
     fun getPokemon(i:Int):me.sargunvohra.lib.pokekotlin.model.Pokemon{
-
         val test = pokeApi.getPokemon(i)
         return test
     }
