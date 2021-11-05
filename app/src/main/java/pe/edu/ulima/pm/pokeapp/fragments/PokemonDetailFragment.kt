@@ -92,6 +92,14 @@ class PokemonDetailFragment() : Fragment() {
         btnAtras.setOnClickListener {
             listener?.onClick("cancelar")
         }
+        val btnFavoritos = view.findViewById<Button>(R.id.but_añadir)
+        btnFavoritos.setOnClickListener {
+
+            var bundle:Bundle = Bundle()
+            bundle.putInt("id",ide)
+            parentFragmentManager.setFragmentResult("fav",bundle)
+            listener?.onClick("favorito")
+        }
     }
 
 }

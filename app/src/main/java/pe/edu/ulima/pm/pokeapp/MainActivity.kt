@@ -76,6 +76,10 @@ class MainActivity : AppCompatActivity(), PokemonFragment.OnPokemonSelectedListe
     }
 
     override fun onClick(vista: String) {
+        if(vista == "cancelar"){
         changePokemonFragment()
+        }else if(vista == "favorito"){
+            changePokemonFragment()
+        }
     }
 }
