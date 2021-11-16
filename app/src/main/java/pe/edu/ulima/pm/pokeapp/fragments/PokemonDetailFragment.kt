@@ -23,7 +23,7 @@ class PokemonDetailFragment() : Fragment() {
     //-------------------------------------------------------------------
 
     private var listener : OnClicked? = null
-    private var ide : Long? = 0
+    private var ide : Long? = null
 
     interface OnClicked{
         fun onClick(vista:String)
@@ -59,7 +59,7 @@ class PokemonDetailFragment() : Fragment() {
             ide = bundle.getLong("id")
             val handler = HandlerCompat.createAsync(Looper.myLooper()!!)
             Thread() {
-                val pokemon = PokemonManager(requireActivity().applicationContext).getPokemon(ide!!)
+                val pokemon = PokemonManager(requireActivity().applicationContext).getPokemon(this.ide!!)
                 handler.post {
                     val name = view.findViewById<TextView>(R.id.tvi_nombre)
                     name.text = pokemon.name

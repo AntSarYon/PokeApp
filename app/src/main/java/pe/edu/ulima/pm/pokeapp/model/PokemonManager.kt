@@ -50,11 +50,10 @@ class PokemonManager(context: Context) {
 
     fun getPokemon(i:Long): Pokemon{
         var pk : Pokemon? = null
-        dbFirebase.collection("pokemon")
-            .get()
+        dbFirebase.collection("pokemon").get()
             .addOnSuccessListener { res ->
                 for(document in res){
-                    if(document.id.toLong() == i.toLong()){
+                    if(document.id.toLong() == i){
                         pk = Pokemon(
                             document.id.toLong(),
                             document.data["name"]!! as String,
