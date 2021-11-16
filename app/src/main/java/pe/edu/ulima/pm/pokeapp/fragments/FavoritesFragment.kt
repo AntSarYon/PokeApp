@@ -37,6 +37,7 @@ class FavoritesFragment() : Fragment()  {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val editor = view.context.getSharedPreferences("FAVORITOS",Context.MODE_PRIVATE)
         lista = editor.getStringSet("LIST_POKEMON", setOf<String>())?.toMutableList()!!
         val rvNombres = view.findViewById<RecyclerView>(R.id.rviFavorites)

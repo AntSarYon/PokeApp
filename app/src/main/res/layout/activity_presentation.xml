@@ -118,7 +118,6 @@
         android:layout_height="60dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Usuario"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/but_continuar"
         app:layout_constraintEnd_toEndOf="parent"

@@ -69,7 +69,6 @@ class PokemonListAdapter(
             holder.tviPokemonSpecialAttack.text = pokemonList[position].specialAttack.toString()
             holder.tviPokemonSpecialDefense.text = pokemonList[position].specialDefense.toString()
 
-
             //Gestionamos Glide para obtener la imagen para el item por medio de la red ---
             Glide.with(fragment)
                 .load(pokemonList[position].url)
