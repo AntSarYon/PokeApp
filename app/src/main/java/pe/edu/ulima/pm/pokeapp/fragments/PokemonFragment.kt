@@ -53,44 +53,34 @@ class PokemonFragment() : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var pkLista: List<Pokemon> = listOf()
-
-        val handler = HandlerCompat.createAsync(Looper.myLooper()!!)
+        //var pkLista: List<Pokemon> = listOf()
+        val rviPokemon = view.findViewById<RecyclerView>(R.id.rviPokemon)
+        //val handler = HandlerCompat.createAsync(Looper.myLooper()!!)
         Thread() {
-             PokemonManager(requireActivity().applicationContext).getAllPokemon({pkList : List<Pokemon> ->
-                 val rviPokemon = view.findViewById<RecyclerView>(R.id.rviPokemon)
-                 rviPokemon.adapter = PokemonListAdapter(
-                     pkLista,
-                     this
-                 ){ pokemon : Pokemon ->
-                     Log.i("PokemonFragment", pokemon.name)
-                     val result = pokemon.id
-                     var bundle : Bundle = Bundle()
-                     bundle.putInt("id",result.toInt())
-                     parentFragmentManager.setFragmentResult("pok",bundle)
-                     listener?.onSelect()
-                 }
-             },{error ->
-                 Log.e("PokemonFragment", error)
-                 Toast.makeText(activity, "Error" + error, Toast.LENGTH_SHORT).show()
-             })
-             //handler.post {
+            //handler.post {
+                PokemonManager(requireActivity().applicationContext).getAllPokemon({ pkList: List<Pokemon> ->
+                    rviPokemon.adapter = PokemonListAdapter(
+                        pkList,
+                        this
+                    ) { pokemon: Pokemon ->
+                        //Log.i("PokemonFragment", pokemon.name)
+                        //var bundle: Bundle = Bundle()
+                        //val result = pokemon.id
+                        //bundle.putLong("id", result)
+                        //parentFragmentManager.setFragmentResult("pok", bundle)
+                        listener?.onSelect()
+                    }
+                }, { error ->
+                    Log.e("PokemonFragment", error)
+                    Toast.makeText(activity, "Error" + error, Toast.LENGTH_SHORT).show()
+                })
 
+                }.start()
+            }
 
-                 //)
-                 //}
-             /*}
-            val gson = Gson()
-            activity?.openFileOutput("Pokemon.json", Context.MODE_PRIVATE).use{
-                pkLista.forEach { pok ->
-                    it?.write(gson.toJson(pok).toByteArray(Charsets.UTF_8))
-                }
-            }*/
-        }.start()
-    }
     //funcion para almacenamiento interno de pokemon
     /*
-        fun getPokemonAI(): List<Pokemon> {
+    fun getPokemonAI(): List<Pokemon> {
         var cadena : String =""
         try {
             activity?.openFileInput("Pokemon.json").use {

@@ -73,8 +73,8 @@ class PokemonDetailFragment() : Fragment() {
                     ate.text = pokemon.specialAttack.toString()
                     val dee = view.findViewById<TextView>(R.id.tvi_DSpecialDefense_value)
                     dee.text = pokemon.specialDefense.toString()
-                    var img = view.findViewById<ImageView>(R.id.imageView)
 
+                    var img = view.findViewById<ImageView>(R.id.imageView)
                     Glide.with(this).load(pokemon.url)
                         .sizeMultiplier(1f).fitCenter()
                         .into(img)

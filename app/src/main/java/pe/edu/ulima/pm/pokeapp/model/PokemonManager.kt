@@ -12,18 +12,7 @@ import pe.edu.ulima.pm.pokeapp.model.Pokemon
 
 class PokemonManager(context: Context) {
 
-    //val pokeApi = PokeApiClient()
-    //val db = Room.databaseBuilder(context, PKAppDatabase::class.java, "db_pokemon").allowMainThreadQueries().build()
-
     private val dbFirebase = Firebase.firestore
-
-    //val API_URL = "https://pokeapi.co/api/v2/"
-
-    fun getPokemon(callbackOK : (List<Pokemon>) -> Unit , callbackError : (String) ->Unit) {
-
-        //PRIMERO GESTIONAR EL NETWORKCLIENT
-        // (...)
-    }
 
     fun getAllPokemon(callbackOK: (List<Pokemon>) -> Unit, callbackError: (String) -> Unit) {
         dbFirebase.collection("pokemon")
@@ -31,15 +20,16 @@ class PokemonManager(context: Context) {
             .addOnSuccessListener { res ->
                 val listaPokes = arrayListOf<Pokemon>()
                 for(document in res){
+
                     val pk = Pokemon(
                         document.id.toLong(),
                         document.data["name"]!! as String,
-                        (document.data["hp"]!! as Double).toFloat(),
-                        (document.data["attack"]!! as Double).toFloat(),
-                        (document.data["defense"]!! as Double).toFloat(),
-                        (document.data["specialAttack"]!! as Double).toFloat(),
-                        (document.data["specialDefense"]!! as Double).toFloat(),
-                        document.data["url"]!! as String,
+                        (document.data["hp"]!! as Long).toFloat(),
+                        (document.data["attack"]!! as Long).toFloat(),
+                        (document.data["defense"]!! as Long).toFloat(),
+                        (document.data["specialAttack"]!! as Long).toFloat(),
+                        (document.data["specialDefense"]!! as Long).toFloat(),
+                        document.data["url"]!! as String
                     )
                     listaPokes.add(pk)
                 }
@@ -63,19 +53,19 @@ class PokemonManager(context: Context) {
         dbFirebase.collection("pokemon")
             .get()
             .addOnSuccessListener { res ->
-                val listaPokes = arrayListOf<Pokemon>()
                 for(document in res){
                     if(document.id.toLong() == i.toLong()){
                         pk = Pokemon(
                             document.id.toLong(),
                             document.data["name"]!! as String,
-                            (document.data["hp"]!! as Double).toFloat(),
-                            (document.data["attack"]!! as Double).toFloat(),
-                            (document.data["defense"]!! as Double).toFloat(),
-                            (document.data["specialAttack"]!! as Double).toFloat(),
-                            (document.data["specialDefense"]!! as Double).toFloat(),
-                            document.data["url"]!! as String,
+                            (document.data["hp"]!! as Long).toFloat(),
+                            (document.data["attack"]!! as Long).toFloat(),
+                            (document.data["defense"]!! as Long).toFloat(),
+                            (document.data["specialAttack"]!! as Long).toFloat(),
+                            (document.data["specialDefense"]!! as Long).toFloat(),
+                            document.data["url"]!! as String
                         )
+                        break
                     }
                 }
             }
