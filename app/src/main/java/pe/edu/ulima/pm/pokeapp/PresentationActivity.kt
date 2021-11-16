@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 
 class PresentationActivity: AppCompatActivity() {
@@ -18,7 +19,9 @@ class PresentationActivity: AppCompatActivity() {
             val intent = Intent()
             val bundle = Bundle()
 
-            //El Bundle indica que se debe mostar el Fragment de la lista de Pokemon
+            bundle.putString("username", findViewById<EditText>(R.id.eteUsuario).text.toString())
+
+            //El Bundle tambien indica que se debe mostar el Fragment de la lista de Pokemon
             bundle.putString("fragment", "pokemon")
             intent.putExtra("data", bundle)
 
