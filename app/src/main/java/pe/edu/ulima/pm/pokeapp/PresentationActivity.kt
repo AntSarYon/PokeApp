@@ -39,21 +39,31 @@ class PresentationActivity: AppCompatActivity() {
                     Toast.makeText(this, "Error guardando usuario", Toast.LENGTH_SHORT).show()
                 }
             )
-
-
         }
 
         val butFavoritos : Button = findViewById<Button>(R.id.but_favoritos)
         butFavoritos.setOnClickListener {
-            val intent = Intent()
-            val bundle = Bundle()
 
-            //El Bundle indica que se debe mostar el Fragment de Favoritos
-            bundle.putString("fragment", "favoritos")
-            intent.putExtra("data", bundle)
+            UserManager.instance.saveUser(
+                findViewById<EditText>(R.id.eteUsuario).text.toString(),
+                {
+                    val intent = Intent()
+                    val bundle = Bundle()
 
-            intent.setClass(this, MainActivity::class.java)
-            startActivity(intent)
+                    bundle.putString("username", findViewById<EditText>(R.id.eteUsuario).text.toString())
+                    //El Bundle indica que se debe mostar el Fragment de Favoritos
+                    bundle.putString("fragment", "favoritos")
+
+                    intent.putExtra("data", bundle)
+
+                    intent.setClass(this, MainActivity::class.java)
+                    startActivity(intent)
+                },{
+                    Log.e("PresentationActivity", it)
+                    Toast.makeText(this, "Error guardando usuario", Toast.LENGTH_SHORT).show()
+                }
+            )
         }
+
     }
 }

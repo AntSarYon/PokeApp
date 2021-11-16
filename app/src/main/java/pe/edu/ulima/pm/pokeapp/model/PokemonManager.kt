@@ -18,7 +18,7 @@ class PokemonManager(context: Context) {
         dbFirebase.collection("pokemon")
             .get()
             .addOnSuccessListener { res ->
-                val listaPokes = arrayListOf<Pokemon>()
+                val listPokes = arrayListOf<Pokemon>()
                 for(document in res){
 
                     val pk = Pokemon(
@@ -31,9 +31,9 @@ class PokemonManager(context: Context) {
                         (document.data["specialDefense"]!! as Long).toFloat(),
                         document.data["url"]!! as String
                     )
-                    listaPokes.add(pk)
+                    listPokes.add(pk)
                 }
-                callbackOK(listaPokes)
+                callbackOK(listPokes)
             }
             .addOnFailureListener {
                 callbackError(it.message!!)

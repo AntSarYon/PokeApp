@@ -42,7 +42,6 @@ class MainActivity : AppCompatActivity(), PokemonFragment.OnPokemonSelectedListe
             ft.replace(R.id.flaContent,fragmentPKF)
             ft.commit()
         }
-
     }
 
     //-- FUNCION | Cambio a Lista de Pokemon ---------------------------------

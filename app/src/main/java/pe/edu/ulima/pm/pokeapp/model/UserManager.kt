@@ -19,15 +19,39 @@ class UserManager {
             "usuario" to usuario
         )
 
-        val userId = System.currentTimeMillis()
-        dbFirebase.collection("usuarios").document(
-            userId.toString()
-        ).set(data)
-            .addOnSuccessListener {
-                callbackOK(userId)
+        var esta = false
+
+        // COMPROBACION - ¿ESTA EN FIREBASE?
+
+        dbFirebase.collection("usuarios")
+            .get()
+            .addOnSuccessListener { res ->
+                for(document in res){
+                    if(document.data["usuario"]!!.toString() == usuario){
+                        esta = true
+                        break
+                    }
+                }
             }
             .addOnFailureListener {
                 callbackError(it.message!!)
             }
+
+        // SI NO ESTA - SE CREA UN NUEVO USUARIO
+
+        if(!esta) {
+            val userId = System.currentTimeMillis()
+            dbFirebase.collection("usuarios").document(
+                userId.toString()
+            ).set(data)
+                .addOnSuccessListener {
+                    callbackOK(userId)
+                }
+                .addOnFailureListener {
+                    callbackError(it.message!!)
+                }
+        }
+
+
     }
 }
