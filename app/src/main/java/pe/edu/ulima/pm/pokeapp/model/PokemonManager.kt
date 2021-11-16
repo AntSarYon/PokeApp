@@ -46,7 +46,7 @@ class PokemonManager(context: Context) {
                 callbackOK(listaPokes)
             }
             .addOnFailureListener {
-
+                callbackError(it.message!!)
             }
         /*----------------------------------------------------------------------------------------
         val lista : MutableList<me.sargunvohra.lib.pokekotlin.model.Pokemon> = mutableListOf()

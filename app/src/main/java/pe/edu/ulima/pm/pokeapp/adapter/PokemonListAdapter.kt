@@ -13,15 +13,15 @@ import pe.edu.ulima.pm.pokeapp.model.Pokemon
 
 class PokemonListAdapter(
 
-    private val pokemonList : List<me.sargunvohra.lib.pokekotlin.model.Pokemon>,
+    private val pokemonList : List<Pokemon>,
     private val fragment : Fragment,
-    private val listener : (me.sargunvohra.lib.pokekotlin.model.Pokemon) ->Unit) :
+    private val listener : (Pokemon) -> Unit) :
 
     //-----------------------------------------------------------------
 
     RecyclerView.Adapter<PokemonListAdapter.ViewHolder>() {
 
-        class ViewHolder(view : View, val listener : (me.sargunvohra.lib.pokekotlin.model.Pokemon) ->Unit, val pokemonList: List<me.sargunvohra.lib.pokekotlin.model.Pokemon>) : RecyclerView.ViewHolder(view), View.OnClickListener {
+        class ViewHolder(view : View, val listener : (Pokemon) ->Unit, val pokemonList: List<Pokemon>) : RecyclerView.ViewHolder(view), View.OnClickListener {
 
             val iviPokemonImage : ImageView
             val tviPokemonName : TextView
@@ -61,19 +61,19 @@ class PokemonListAdapter(
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int)
         {
-            //accedo a los elementos de ese item para modificar sus propieades ------
+            //Accedo a los elementos de ese item para modificar sus propieades ------
             holder.tviPokemonName.text = pokemonList[position].name
-            holder.tviPokemonHP.text = pokemonList[position].stats[0].baseStat.toString()
-            holder.tviPokemonAttack.text = pokemonList[position].stats[1].baseStat.toString()
-            holder.tviPokemonDefense.text = pokemonList[position].stats[2].baseStat.toString()
-            holder.tviPokemonSpecialAttack.text = pokemonList[position].stats[3].baseStat.toString()
-            holder.tviPokemonSpecialDefense.text = pokemonList[position].stats[4].baseStat.toString()
+            holder.tviPokemonHP.text = pokemonList[position].hp.toString()
+            holder.tviPokemonAttack.text = pokemonList[position].attack.toString()
+            holder.tviPokemonDefense.text = pokemonList[position].defense.toString()
+            holder.tviPokemonSpecialAttack.text = pokemonList[position].specialAttack.toString()
+            holder.tviPokemonSpecialDefense.text = pokemonList[position].specialDefense.toString()
 
 
-            //Gestionamos Glide para obtener una imagen para el item por medio de la red ---
+            //Gestionamos Glide para obtener la imagen para el item por medio de la red ---
             Glide.with(fragment)
-                .load(pokemonList[position].sprites.frontDefault)
-                .sizeMultiplier(1f)
+                .load(pokemonList[position].url)
+                .sizeMultiplier(0.8f)
                 .fitCenter()
                 .into(holder.iviPokemonImage)
         }
