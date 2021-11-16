@@ -61,20 +61,21 @@ class PokemonDetailFragment() : Fragment() {
             Thread() {
                 val pokemon = PokemonManager(requireActivity().applicationContext).getPokemon(ide)
                 handler.post {
-                    val nombre = view.findViewById<TextView>(R.id.tvi_nombre)
-                    nombre.text = pokemon.name
+                    val name = view.findViewById<TextView>(R.id.tvi_nombre)
+                    name.text = pokemon.name
                     val hp = view.findViewById<TextView>(R.id.tvi_DHP_value)
-                    hp.text = pokemon.stats[0].baseStat.toString()
+                    hp.text = pokemon.hp.toString()
                     val att = view.findViewById<TextView>(R.id.tvi_DAttack_value)
-                    att.text = pokemon.stats[1].baseStat.toString()
+                    att.text = pokemon.attack.toString()
                     val def = view.findViewById<TextView>(R.id.tvi_DDefense_value)
-                    def.text = pokemon.stats[2].baseStat.toString()
+                    def.text = pokemon.defense.toString()
                     val ate = view.findViewById<TextView>(R.id.tvi_DSpecialAttack_value)
-                    ate.text = pokemon.stats[3].baseStat.toString()
+                    ate.text = pokemon.specialAttack.toString()
                     val dee = view.findViewById<TextView>(R.id.tvi_DSpecialDefense_value)
-                    dee.text = pokemon.stats[4].baseStat.toString()
+                    dee.text = pokemon.specialDefense.toString()
                     var img = view.findViewById<ImageView>(R.id.imageView)
-                    Glide.with(this).load(pokemon.sprites.frontDefault)
+
+                    Glide.with(this).load(pokemon.url)
                         .sizeMultiplier(1f).fitCenter()
                         .into(img)
                 }

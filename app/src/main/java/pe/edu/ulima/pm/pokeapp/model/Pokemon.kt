@@ -18,23 +18,23 @@ data class Pokemon(
 
     //stats[0] > base_stat
     @ColumnInfo(name="hp")
-    val hp : Int,
+    val hp : Float,
 
     //stats[1] > base_stat
     @ColumnInfo(name="attack")
-    val attack : Int,
+    val attack : Float,
 
     //stats[2] > base_stat
     @ColumnInfo(name="defense")
-    val defense: Int,
+    val defense: Float,
 
     //stats[3] > base_stat
     @ColumnInfo(name="special_attack")
-    val specialAttack : Int,
+    val specialAttack : Float,
 
     //stats[4] > base_stat
     @ColumnInfo(name="special_defense")
-    val specialDefense: Int,
+    val specialDefense: Float,
 
     // sprites > other > official_artwork > front_default
     //Devuelve este URL a la imagen del pokemon --> https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png

@@ -54,23 +54,32 @@ class PokemonFragment() : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         var pkLista: List<Pokemon> = listOf()
-        val rviPokemon = view.findViewById<RecyclerView>(R.id.rviPokemon)
+
         val handler = HandlerCompat.createAsync(Looper.myLooper()!!)
         Thread() {
-             pkLista = PokemonManager(requireActivity().applicationContext).getAllPokemon()//getPokemonAI()
-             handler.post {
+             PokemonManager(requireActivity().applicationContext).getAllPokemon({pkList : List<Pokemon> ->
+                 val rviPokemon = view.findViewById<RecyclerView>(R.id.rviPokemon)
                  rviPokemon.adapter = PokemonListAdapter(
                      pkLista,
                      this
                  ){ pokemon : Pokemon ->
-                     Log.i("ProductsFragment", pokemon.name)
+                     Log.i("PokemonFragment", pokemon.name)
                      val result = pokemon.id
                      var bundle : Bundle = Bundle()
                      bundle.putInt("id",result.toInt())
                      parentFragmentManager.setFragmentResult("pok",bundle)
                      listener?.onSelect()
                  }
-             }/*
+             },{error ->
+                 Log.e("PokemonFragment", error)
+                 Toast.makeText(activity, "Error" + error, Toast.LENGTH_SHORT).show()
+             })
+             //handler.post {
+
+
+                 //)
+                 //}
+             /*}
             val gson = Gson()
             activity?.openFileOutput("Pokemon.json", Context.MODE_PRIVATE).use{
                 pkLista.forEach { pok ->

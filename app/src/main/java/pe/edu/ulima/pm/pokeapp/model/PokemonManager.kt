@@ -33,12 +33,12 @@ class PokemonManager(context: Context) {
                 for(document in res){
                     val pk = Pokemon(
                         document.id.toLong(),
-                        document.data["nombre"]!! as String,
-                        document.data["hp"]!! as Int,
-                        document.data["attack"]!! as Int,
-                        document.data["defense"]!! as Int,
-                        document.data["specialAttack"]!! as Int,
-                        document.data["specialDefense"]!! as Int,
+                        document.data["name"]!! as String,
+                        (document.data["hp"]!! as Double).toFloat(),
+                        (document.data["attack"]!! as Double).toFloat(),
+                        (document.data["defense"]!! as Double).toFloat(),
+                        (document.data["specialAttack"]!! as Double).toFloat(),
+                        (document.data["specialDefense"]!! as Double).toFloat(),
                         document.data["url"]!! as String,
                     )
                     listaPokes.add(pk)
@@ -58,9 +58,27 @@ class PokemonManager(context: Context) {
         -------------------------------------------------------------------------------------------*/
     }
 
-    //fun getPokemon(i:Int):me.sargunvohra.lib.pokekotlin.model.Pokemon{
-    //    val test = pokeApi.getPokemon(i)
-    //    return test
-    //}
-
+    fun getPokemon(i:Int): Pokemon{
+        var pk : Pokemon? = null
+        dbFirebase.collection("pokemon")
+            .get()
+            .addOnSuccessListener { res ->
+                val listaPokes = arrayListOf<Pokemon>()
+                for(document in res){
+                    if(document.id.toLong() == i.toLong()){
+                        pk = Pokemon(
+                            document.id.toLong(),
+                            document.data["name"]!! as String,
+                            (document.data["hp"]!! as Double).toFloat(),
+                            (document.data["attack"]!! as Double).toFloat(),
+                            (document.data["defense"]!! as Double).toFloat(),
+                            (document.data["specialAttack"]!! as Double).toFloat(),
+                            (document.data["specialDefense"]!! as Double).toFloat(),
+                            document.data["url"]!! as String,
+                        )
+                    }
+                }
+            }
+        return pk!!
+    }
 }
