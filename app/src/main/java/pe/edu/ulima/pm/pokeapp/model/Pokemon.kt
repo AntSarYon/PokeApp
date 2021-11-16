@@ -30,14 +30,14 @@ data class Pokemon(
 
     //stats[3] > base_stat
     @ColumnInfo(name="special_attack")
-    val special_attack : Int,
+    val specialAttack : Int,
 
     //stats[4] > base_stat
     @ColumnInfo(name="special_defense")
-    val special_defense: Int,
+    val specialDefense: Int,
 
     // sprites > other > official_artwork > front_default
-    // Devuelve este URL a la imagen del pokemon --> https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png
+    //Devuelve este URL a la imagen del pokemon --> https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png
     @ColumnInfo(name="url")
     val url: String
 
