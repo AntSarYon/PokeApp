@@ -48,7 +48,7 @@ class PokemonManager(context: Context) {
         -------------------------------------------------------------------------------------------*/
     }
 
-    fun getPokemon(i:Int): Pokemon{
+    fun getPokemon(i:Long): Pokemon{
         var pk : Pokemon? = null
         dbFirebase.collection("pokemon")
             .get()

@@ -57,24 +57,23 @@ class PokemonFragment() : Fragment() {
         val rviPokemon = view.findViewById<RecyclerView>(R.id.rviPokemon)
         val handler = HandlerCompat.createAsync(Looper.myLooper()!!)
         Thread() {
-            handler.post {
+            //handler.post {
                 PokemonManager(requireActivity().applicationContext).getAllPokemon({ pkList: List<Pokemon> ->
                     rviPokemon.adapter = PokemonListAdapter(
                         pkList,
                         this
                     ) { pokemon: Pokemon ->
-                        //Log.i("PokemonFragment", pokemon.name)
-                        //var bundle: Bundle = Bundle()
-                        //val result = pokemon.id
-                        //bundle.putLong("id", result)
-                        //parentFragmentManager.setFragmentResult("pok", bundle)
+                        var bundle: Bundle = Bundle()
+                        val result = pokemon.id
+                        bundle.putLong("id", result)
+                        parentFragmentManager.setFragmentResult("pok", bundle)
                         listener?.onSelect()
                     }
                 }, { error ->
                     Log.e("PokemonFragment", error)
                     Toast.makeText(activity, "Error" + error, Toast.LENGTH_SHORT).show()
                 })
-            }
+            //}
                 }.start()
             }
 
