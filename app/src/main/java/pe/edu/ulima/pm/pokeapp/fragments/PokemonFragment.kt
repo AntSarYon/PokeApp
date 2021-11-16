@@ -57,7 +57,7 @@ class PokemonFragment() : Fragment() {
         val rviPokemon = view.findViewById<RecyclerView>(R.id.rviPokemon)
         val handler = HandlerCompat.createAsync(Looper.myLooper()!!)
         Thread() {
-            //handler.post {
+            handler.post {
                 PokemonManager(requireActivity().applicationContext).getAllPokemon({ pkList: List<Pokemon> ->
                     rviPokemon.adapter = PokemonListAdapter(
                         pkList,
@@ -73,7 +73,7 @@ class PokemonFragment() : Fragment() {
                     Log.e("PokemonFragment", error)
                     Toast.makeText(activity, "Error" + error, Toast.LENGTH_SHORT).show()
                 })
-            //}
+            }
                 }.start()
             }
 

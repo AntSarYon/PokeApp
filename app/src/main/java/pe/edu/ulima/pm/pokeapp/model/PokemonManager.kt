@@ -38,15 +38,8 @@ class PokemonManager(context: Context) {
             .addOnFailureListener {
                 callbackError(it.message!!)
             }
-        /*----------------------------------------------------------------------------------------
-        val lista : MutableList<me.sargunvohra.lib.pokekotlin.model.Pokemon> = mutableListOf()
-        for (i in 1..20){
-            val test = pokeApi.getPokemon(i)
-            lista.add(test)
-        }
-        return lista;
-        -------------------------------------------------------------------------------------------*/
     }
+
 
     fun getPokemon(i:Long): Pokemon{
         var pk : Pokemon? = null
@@ -64,7 +57,6 @@ class PokemonManager(context: Context) {
                             (document.data["specialDefense"]!! as Long).toFloat(),
                             document.data["url"]!! as String
                         )
-                        break
                     }
                 }
             }
