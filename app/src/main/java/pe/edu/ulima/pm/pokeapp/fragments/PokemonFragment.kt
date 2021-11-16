@@ -53,11 +53,11 @@ class PokemonFragment() : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //var pkLista: List<Pokemon> = listOf()
+        var pkLista: List<Pokemon> = listOf()
         val rviPokemon = view.findViewById<RecyclerView>(R.id.rviPokemon)
-        //val handler = HandlerCompat.createAsync(Looper.myLooper()!!)
+        val handler = HandlerCompat.createAsync(Looper.myLooper()!!)
         Thread() {
-            //handler.post {
+            handler.post {
                 PokemonManager(requireActivity().applicationContext).getAllPokemon({ pkList: List<Pokemon> ->
                     rviPokemon.adapter = PokemonListAdapter(
                         pkList,
@@ -74,7 +74,7 @@ class PokemonFragment() : Fragment() {
                     Log.e("PokemonFragment", error)
                     Toast.makeText(activity, "Error" + error, Toast.LENGTH_SHORT).show()
                 })
-
+            }
                 }.start()
             }
 
